@@ -52,7 +52,6 @@
         networking = {
             networkmanager.enable = true;
             hostName = "thinkpad";
-            # Open ports in the firewall.
             firewall = {
                 enable = true;
                 allowedTCPPorts = [
@@ -201,6 +200,7 @@
         environment.systemPackages = [
             # Essentials
             pkgs.gcc
+            pkgs.clang
             pkgs.unzip
             pkgs.curl
             pkgs.tree
@@ -228,15 +228,17 @@
         users.users.majunior = {
             isNormalUser = true;
             description = "Marco Souza";
-            extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
+            extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" "kvm" ];
             shell = pkgs.zsh;
-            packages = [ ]; # NOTE: let's use home-manager for this part
+            packages = [ ];
         };
 
         # Nix Settings
         nix.settings.experimental-features = [ "nix-command" "flakes" ];
-        nixpkgs.config.allowUnfree = true;
-        system.stateVersion = "25.11";
+        nixpkgs.config = {
+            allowUnfree = true;
+        };
+        system.stateVersion = "26.05";
     };
 }
 
