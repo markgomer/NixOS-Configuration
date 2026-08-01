@@ -27,7 +27,7 @@
                         pkgs.git
                         pkgs.pokemon-colorscripts
                         pkgs.tealdeer
-                        pkgs-unstable.tmux
+                        pkgs.tmux
                         pkgs.eza
                         pkgs.zoxide
 
