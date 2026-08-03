@@ -22,7 +22,7 @@
         };
         environment.systemPackages = [
             pkgs-unstable.noctalia-shell # legendary shell
-            # pkgs-unstable.noctalia # beta version
+            pkgs-unstable.noctalia # beta version
             pkgs.alacritty # default terminal
             # NOTE: disabled in favor of noctalia plugin
             # pkgs.hyprpolkitagent # or polkit_gnome
