@@ -188,7 +188,13 @@
                 remotePlay.openFirewall = true;
                 dedicatedServer.openFirewall = true;
             };
-            nix-ld.enable = true;
+            nix-ld = {
+                enable = true;
+                libraries = [
+                    pkgs.libGL
+                    pkgs.libX11
+                ];
+            };
             appimage = {
                 enable = true;
                 binfmt = true;
