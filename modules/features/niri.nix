@@ -3,7 +3,7 @@
     flake.nixosModules.NiriModule = { pkgs, pkgs-unstable, ... }: {
         programs.niri = {
             enable = true;
-            package = pkgs-unstable.niri;
+            package = pkgs.niri;
             useNautilus = true;
         };
         services = {
@@ -22,6 +22,7 @@
         };
         environment.systemPackages = [
             pkgs-unstable.noctalia-shell # legendary shell
+            # pkgs-unstable.noctalia # beta version
             pkgs.alacritty # default terminal
             # NOTE: disabled in favor of noctalia plugin
             # pkgs.hyprpolkitagent # or polkit_gnome
@@ -32,8 +33,8 @@
             pkgs.pavucontrol # audio GUI fallback
             pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs.playerctl # for using keyboard media keys
-            pkgs-unstable.ianny # break reminder program
-            pkgs-unstable.xwayland-satellite
+            pkgs.ianny # break reminder program
+            pkgs.xwayland-satellite
             pkgs.swaybg # wallpaper
 
             # screen tools plugin dependencies
