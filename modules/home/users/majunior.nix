@@ -35,7 +35,6 @@
                         pkgs.podman-compose
 
                         # coding pack
-                        pkgs.bear # create compile_commands.json
                         pkgs.fd
                         pkgs.lazygit
                         pkgs.ripgrep

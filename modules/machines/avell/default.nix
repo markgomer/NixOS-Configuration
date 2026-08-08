@@ -12,11 +12,11 @@
             };
 
             modules = [
-                self.nixosModules.AvellConfiguration
-                self.nixosModules.HyprModule
-                self.nixosModules.majuniorHome
-                self.nixosModules.DisplayManagerModule
-                inputs.stylix.nixosModules.stylix
+                # self.nixosModules.AvellConfiguration
+                self.nixosModules.ConsoleModule
+                # self.nixosModules.NiriModule
+                # self.nixosModules.majuniorHome
+                # self.nixosModules.DisplayManagerModule
             ];
         };
     };
