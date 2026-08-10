@@ -13,10 +13,9 @@
 
             modules = [
                 self.nixosModules.AvellConfiguration
-                self.nixosModules.HyprModule
+                self.nixosModules.NiriModule
                 self.nixosModules.majuniorHome
                 self.nixosModules.DisplayManagerModule
-                inputs.stylix.nixosModules.stylix
             ];
         };
     };

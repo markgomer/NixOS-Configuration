@@ -171,21 +171,8 @@
                 uncoreOffset = -127;
             };
 
-            keyd = {
-                enable = true;
-                keyboards = {
-                    # The name is just the name of the configuration file, it does not really matter
-                    default = {
-                        ids = [ "*" ]; # what goes into the [id] section, here we select all keyboards
-                        settings = {
-                            main = {
-                                capslock = "overload(control,esc)";
-                                esc = "capslock";
-                            };
-                        };
-                    };
-                };
-            };
+            input-remapper.enable = true;
+
             # for external media
             udisks2.enable = true;
             gvfs.enable = true;
@@ -217,39 +204,6 @@
             enable = true;
             dockerCompat = true;
             defaultNetwork.settings.dns_enabled = true;
-        };
-
-        stylix = {
-            enable = false;
-            polarity = "dark";
-            targets.qt.enable = true;
-            # https://tinted-theming.github.io/tinted-gallery/
-            base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-            # stylix.image = ./wallpaper.png;
-            fonts = {
-                serif = {
-                    package = pkgs.nerd-fonts.caskaydia-cove;
-                    name = "CaskaydiaCove Nerd Font";
-                };
-                sansSerif = {
-                    package = pkgs.nerd-fonts.caskaydia-cove;
-                    name = "CaskaydiaCove Nerd Font";
-                };
-                monospace = {
-                    package = pkgs.nerd-fonts.jetbrains-mono;
-                    name = "JetBrains Mono Nerd Font";
-                };
-                emoji = {
-                    package = pkgs.noto-fonts-color-emoji;
-                    name = "Noto Color Emoji";
-                };
-                sizes = {
-                    applications = 10;
-                    terminal = 11;
-                    desktop = 10;
-                    popups = 10;
-                };
-            };
         };
 
         xdg.terminal-exec = {
@@ -302,9 +256,7 @@
             yazi
 
             # Terminals
-            kitty
-
-            pcmanfm
+            foot
         ];
 
         users.users.majunior = {
@@ -318,7 +270,7 @@
         # Nix Settings
         nix.settings.experimental-features = [ "nix-command" "flakes" ];
         nixpkgs.config.allowUnfree = true;
-        system.stateVersion = "25.11";
+        system.stateVersion = "26.05";
     };
 }
 

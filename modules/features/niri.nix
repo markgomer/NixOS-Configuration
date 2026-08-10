@@ -21,7 +21,6 @@
             };
         };
         environment.systemPackages = [
-            pkgs-unstable.noctalia-shell # legendary shell
             pkgs-unstable.noctalia # beta version
             pkgs.alacritty # default terminal
             # NOTE: disabled in favor of noctalia plugin
@@ -38,6 +37,7 @@
             pkgs.swaybg # wallpaper
 
             # screen tools plugin dependencies
+            # TODO: is it still needed? This plugin is not available on v5
             pkgs.grim
             pkgs.slurp
             pkgs.tesseract

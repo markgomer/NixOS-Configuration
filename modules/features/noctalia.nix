@@ -2,7 +2,7 @@
 {
     perSystem = { pkgs-unstable, ... }:
     {
-        packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia-shell.wrap
+        packages.myNoctalia = inputs.wrapper-modules.wrappers.noctalia.wrap
         {
             inherit pkgs-unstable;
             settings =
