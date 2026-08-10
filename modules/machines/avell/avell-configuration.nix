@@ -29,7 +29,9 @@
                     enable = true;
                     # list of absolute path
                     # FIXME: image can't be webp!
-                    style.wallpapers = [ /home/majunior/Pictures/Wallpapers/crt.png ];
+                    style.wallpapers = [
+                        /home/majunior/dotfiles/nixos/modules/features/crt.png
+                    ];
                     # INFO: to randomly rotate through images in a directory
                     # style.wallpapers = map (f: /home/majunior/.cache/noctalia/images/wallpapers/thumbnails + "/${f}")
                     #     (builtins.attrNames (builtins.readDir /home/majunior/.cache/noctalia/images/wallpapers/thumbnails));

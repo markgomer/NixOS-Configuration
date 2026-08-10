@@ -24,7 +24,9 @@
                     enable = true;
                     # list of absolute path
                     # WARN: image can't be webp!
-                    style.wallpapers = [ /home/majunior/Pictures/Wallpapers/crt.png ];
+                    style.wallpapers = [
+                        /home/majunior/dotfiles/nixos/modules/features/crt.png
+                    ];
 
                     # INFO: to randomly rotate through images in a directory
 
