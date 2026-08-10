@@ -16,7 +16,6 @@
             users.majunior = { pkgs, pkgs-unstable, ... }: {
                 imports = [
                     ../_features/zsh.nix
-                    ../_features/link-dotfiles.nix
                 ];
 
                 home = {

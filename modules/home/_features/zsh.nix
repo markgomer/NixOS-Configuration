@@ -1,7 +1,4 @@
 { config, ... }:
-let
-    dotPath = "/home/majunior/dotfiles/.config";
-in
 {
     programs = {
         zsh = {
@@ -19,15 +16,4 @@ in
             enableZshIntegration = true;
         };
     };
-
-    # home.file = {
-    #     ".config/zsh/aliases.sh".source =
-    #         config.lib.file.mkOutOfStoreSymlink "${dotPath}/zsh/aliases.sh";
-    #
-    #     ".config/zsh/functions.sh".source =
-    #         config.lib.file.mkOutOfStoreSymlink "${dotPath}/zsh/functions.sh";
-    #
-    #     ".config/zsh/init.sh".source =
-    #         config.lib.file.mkOutOfStoreSymlink "${dotPath}/zsh/init.sh";
-    # };
 }
