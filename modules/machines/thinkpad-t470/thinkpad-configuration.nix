@@ -5,10 +5,9 @@
         imports = [
             /etc/nixos/hardware-configuration.nix
         ];
-
         boot = {
             kernelPackages = pkgs.linuxPackages_6_18;
-            kernelModules = [ ];
+            kernelModules = ["thinkpad_acpi"];
             kernelParams = [
                 "quiet"
                 "splash"
@@ -19,6 +18,9 @@
                 "udev.log_priority=3"
                 "vt.global_cursor_default=0"
             ];
+            extraModprobeConfig = ''
+                options thinkpad_acpi fan_control=1
+            '';
             loader = {
                 limine = {
                     enable = true;
@@ -237,7 +239,14 @@
         users.users.majunior = {
             isNormalUser = true;
             description = "Marco Souza";
-            extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" "kvm" ];
+            extraGroups = [
+                "networkmanager"
+                "wheel"
+                "video"
+                "input"
+                "audio"
+                "kvm"
+            ];
             shell = pkgs.zsh;
             packages = [ ];
         };
