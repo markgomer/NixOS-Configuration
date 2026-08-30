@@ -250,6 +250,7 @@
             polkit_gnome
             gnupg
             gnumake
+            system-config-printer
 
             # CLI Tools
             bluetui

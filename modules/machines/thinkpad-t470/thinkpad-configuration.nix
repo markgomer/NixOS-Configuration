@@ -222,6 +222,7 @@
             pkgs.polkit_gnome
             pkgs.gnupg
             pkgs.gnumake
+            pkgs.system-config-printer
 
             # CLI Tools
             pkgs.btop
