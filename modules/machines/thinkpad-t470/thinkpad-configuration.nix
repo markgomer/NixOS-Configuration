@@ -204,13 +204,27 @@
                 binfmt = true;
             };
             gnome-disks.enable = true;
+            thunar = {
+                enable = true;
+                plugins = with pkgs; [
+                    thunar-archive-plugin
+                    thunar-volman
+                ];
+            };
         };
 
+        xdg.portal = {
+            enable = true;
+            extraPortals = [
+                pkgs.xdg-desktop-portal-gtk # filechooser + trash
+                pkgs.xdg-desktop-portal-hyprland # screencast/screenshot
+            ];
+            config.common.default = [ "gtk" ];
+        };
 
         environment.systemPackages = [
             # Essentials
             pkgs.gcc
-            pkgs.clang
             pkgs.python313
             pkgs.unzip
             pkgs.curl
@@ -228,8 +242,6 @@
             pkgs.btop
             pkgs.fastfetch
             pkgs.yazi
-
-            pkgs.nautilus
 
             # Terminals
             pkgs-unstable.foot
