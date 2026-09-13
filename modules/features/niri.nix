@@ -1,9 +1,9 @@
 { ... }:
 {
-    flake.nixosModules.NiriModule = { pkgs, pkgs-unstable, ... }: {
+    flake.nixosModules.NiriModule = { pkgs-stable, pkgs-unstable, ... }: {
         programs.niri = {
             enable = true;
-            package = pkgs.niri;
+            package = pkgs-unstable.niri;
             useNautilus = true;
         };
         services = {
@@ -22,32 +22,31 @@
         };
         environment.systemPackages = [
             pkgs-unstable.noctalia # beta version
-            pkgs.alacritty # default terminal
+            pkgs-stable.alacritty # default terminal
             # NOTE: disabled in favor of noctalia plugin
-            # pkgs.hyprpolkitagent # or polkit_gnome
-            pkgs.wl-clipboard
-            pkgs.cliphist
-            pkgs.brightnessctl # laptop brightness
-            pkgs.nwg-look # GTK theme configurator
-            pkgs.pavucontrol # audio GUI fallback
-            pkgs.wayland-pipewire-idle-inhibit # idle inhibition
-            pkgs.playerctl # for using keyboard media keys
-            pkgs.ianny # break reminder program
-            pkgs.xwayland-satellite
-            pkgs.swaybg # wallpaper
+            # pkgs-stable.hyprpolkitagent # or polkit_gnome
+            pkgs-stable.wl-clipboard
+            pkgs-stable.cliphist
+            pkgs-stable.brightnessctl # laptop brightness
+            pkgs-stable.nwg-look # GTK theme configurator
+            pkgs-stable.pavucontrol # audio GUI fallback
+            pkgs-stable.wayland-pipewire-idle-inhibit # idle inhibition
+            pkgs-stable.playerctl # for using keyboard media keys
+            pkgs-stable.ianny # break reminder program
+            pkgs-stable.xwayland-satellite
+            pkgs-stable.swaybg # wallpaper
 
             # screen tools plugin dependencies
             # TODO: is it still needed? This plugin is not available on v5
-            pkgs.grim
-            pkgs.slurp
-            pkgs.tesseract
-            pkgs.imagemagick
-            pkgs.zbar
-            pkgs.translate-shell
-            pkgs.wl-screenrec
-            pkgs.ffmpeg
-            pkgs.gifski
-            pkgs.jq
+            pkgs-stable.grim
+            pkgs-stable.slurp
+            pkgs-stable.tesseract
+            pkgs-stable.imagemagick
+            pkgs-stable.zbar
+            pkgs-stable.translate-shell
+            pkgs-stable.wl-screenrec
+            pkgs-stable.gifski
+            pkgs-stable.jq
         ];
     };
 }

@@ -1,12 +1,14 @@
 { ... }:
 {
-    flake.nixosModules.ThinkPadConfiguration = { pkgs, pkgs-unstable, ... }:
+    flake.nixosModules.ThinkPadConfiguration = {
+        pkgs, pkgs-stable, pkgs-unstable, ...
+    }:
     {
         imports = [
             /etc/nixos/hardware-configuration.nix
         ];
         boot = {
-            kernelPackages = pkgs.linuxPackages_6_18;
+            kernelPackages = pkgs-stable.linuxPackages_6_18;
             kernelModules = ["thinkpad_acpi"];
             kernelParams = [
                 "quiet"
@@ -40,9 +42,9 @@
                 efi.canTouchEfiVariables = true;
             };
             plymouth = {
-                enable = false;
+                enable = true;
                 theme = "circuit";
-                themePackages = with pkgs; [
+                themePackages = with pkgs-stable; [
                     # By default we would install all themes
                     (adi1090x-plymouth-themes.override {
                         selected_themes = [ "circuit" ];
@@ -124,7 +126,7 @@
             printing = {
                 enable = true;
                 drivers = [
-                    pkgs.gutenprint
+                    pkgs-stable.gutenprint
                 ];
             };
 
@@ -195,8 +197,8 @@
             nix-ld = {
                 enable = true;
                 libraries = [
-                    pkgs.libGL
-                    pkgs.libX11
+                    pkgs-stable.libGL
+                    pkgs-stable.libX11
                 ];
             };
             appimage = {
@@ -206,7 +208,7 @@
             gnome-disks.enable = true;
             thunar = {
                 enable = true;
-                plugins = with pkgs; [
+                plugins = with pkgs-stable; [
                     thunar-archive-plugin
                     thunar-volman
                 ];
@@ -216,32 +218,34 @@
         xdg.portal = {
             enable = true;
             extraPortals = [
+                # WARN: these should use the system's pkgs version.
                 pkgs.xdg-desktop-portal-gtk # filechooser + trash
-                pkgs.xdg-desktop-portal-hyprland # screencast/screenshot
+                pkgs.xdg-desktop-portal # screencast/screenshot
             ];
             config.common.default = [ "gtk" ];
         };
 
         environment.systemPackages = [
             # Essentials
-            pkgs.gcc
-            pkgs.python313
-            pkgs.unzip
-            pkgs.curl
-            pkgs.tree
-            pkgs.linuxKernel.packages.linux_6_18.cpupower
-            pkgs.pciutils
-            pkgs.xdg-user-dirs
+            pkgs-stable.gcc
+            pkgs-stable.python313
+            pkgs-stable.unzip
+            pkgs-stable.curl
+            pkgs-stable.tree
+            pkgs-stable.linuxKernel.packages.linux_6_18.cpupower
+            pkgs-stable.pciutils
+            pkgs-stable.xdg-user-dirs
             pkgs-unstable.neovim
-            pkgs.polkit_gnome
-            pkgs.gnupg
-            pkgs.gnumake
-            pkgs.system-config-printer
+            pkgs-stable.polkit_gnome
+            pkgs-stable.gnupg
+            pkgs-stable.gnumake
+            pkgs-stable.system-config-printer
+            pkgs-stable.ffmpeg
 
             # CLI Tools
-            pkgs.btop
-            pkgs.fastfetch
-            pkgs.yazi
+            pkgs-stable.btop
+            pkgs-stable.fastfetch
+            pkgs-stable.yazi
 
             # Terminals
             pkgs-unstable.foot
@@ -269,7 +273,7 @@
         nixpkgs.config = {
             allowUnfree = true;
         };
-        system.stateVersion = "26.05";
+        system.stateVersion = "25.11";
     };
 }
 

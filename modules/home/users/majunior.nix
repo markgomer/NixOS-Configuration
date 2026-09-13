@@ -1,19 +1,20 @@
 { inputs, ... }:
 {
-    flake.nixosModules.majuniorHome = { pkgs-unstable, ... }: {
+    flake.nixosModules.majuniorHome = { pkgs-stable, pkgs-unstable, ... }: {
         imports = [
             inputs.home-manager.nixosModules.home-manager
         ];
 
         home-manager = {
             extraSpecialArgs = {
+                inherit pkgs-stable;
                 inherit pkgs-unstable;
             };
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";
 
-            users.majunior = { pkgs, pkgs-unstable, ... }: {
+            users.majunior = { pkgs, pkgs-stable, pkgs-unstable, ... }: {
                 imports = [
                     ../_features/zsh.nix
                 ];
@@ -23,23 +24,23 @@
                     homeDirectory = "/home/majunior";
                     packages = [
                         pkgs-unstable.asdf-vm
-                        pkgs.git
-                        pkgs.pokemon-colorscripts
-                        pkgs.tealdeer
-                        pkgs.tmux
-                        pkgs.eza
-                        pkgs.zoxide
+                        pkgs-stable.git
+                        pkgs-stable.pokemon-colorscripts
+                        pkgs-stable.tealdeer
+                        pkgs-stable.tmux
+                        pkgs-stable.eza
+                        pkgs-stable.zoxide
 
-                        pkgs.distrobox
-                        pkgs.podman-compose
+                        pkgs-stable.distrobox
+                        pkgs-stable.podman-compose
 
                         # coding pack
-                        pkgs.fd
-                        pkgs.lazygit
-                        pkgs.ripgrep
-                        pkgs.tree-sitter
+                        pkgs-stable.fd
+                        pkgs-stable.lazygit
+                        pkgs-stable.ripgrep
+                        pkgs-stable.tree-sitter
 
-                        pkgs.nwg-look
+                        pkgs-stable.nwg-look
                     ];
 
                     sessionVariables = {
@@ -52,7 +53,7 @@
                         TZ = "America/Sao_Paulo";
                     };
 
-                    stateVersion = "26.05";
+                    stateVersion = "25.11";
                 };
 
                 programs.home-manager.enable = true;
