@@ -217,7 +217,7 @@
             enable = true;
             extraPortals = [
                 pkgs.xdg-desktop-portal-gtk # filechooser + trash
-                pkgs.xdg-desktop-portal-hyprland # screencast/screenshot
+                pkgs.xdg-desktop-portal # screencast/screenshot
             ];
             config.common.default = [ "gtk" ];
         };
@@ -229,6 +229,7 @@
             pkgs.unzip
             pkgs.curl
             pkgs.tree
+            pkgs.ffmpeg
             pkgs.linuxKernel.packages.linux_6_18.cpupower
             pkgs.pciutils
             pkgs.xdg-user-dirs

@@ -23,8 +23,6 @@
         environment.systemPackages = [
             pkgs-unstable.noctalia # beta version
             pkgs.alacritty # default terminal
-            # NOTE: disabled in favor of noctalia plugin
-            # pkgs.hyprpolkitagent # or polkit_gnome
             pkgs.wl-clipboard
             pkgs.cliphist
             pkgs.brightnessctl # laptop brightness
@@ -35,19 +33,6 @@
             pkgs.ianny # break reminder program
             pkgs.xwayland-satellite
             pkgs.swaybg # wallpaper
-
-            # screen tools plugin dependencies
-            # TODO: is it still needed? This plugin is not available on v5
-            pkgs.grim
-            pkgs.slurp
-            pkgs.tesseract
-            pkgs.imagemagick
-            pkgs.zbar
-            pkgs.translate-shell
-            pkgs.wl-screenrec
-            pkgs.ffmpeg
-            pkgs.gifski
-            pkgs.jq
         ];
     };
 }
