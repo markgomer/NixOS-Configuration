@@ -1,3 +1,5 @@
+# NOTE: Use this file to group the modules together.
+# =============================================================================
 { self, inputs, ... }:
 {
     flake.nixosConfigurations = {

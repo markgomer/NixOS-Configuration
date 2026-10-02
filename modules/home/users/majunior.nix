@@ -22,24 +22,24 @@
                     username = "majunior";
                     homeDirectory = "/home/majunior";
                     packages = [
-                        pkgs-unstable.asdf-vm
+                        pkgs-unstable.asdf-vm # to setup dev envs
                         pkgs.git
-                        pkgs.pokemon-colorscripts
-                        pkgs.tealdeer
-                        pkgs.tmux
-                        pkgs.eza
-                        pkgs.zoxide
+                        pkgs.pokemon-colorscripts # the real reason i only use the terminal
+                        pkgs.tealdeer # tldr to bypass boring documentation
+                        pkgs.tmux # CHAD PROGRAMMER tool
+                        pkgs.eza # pretty ls. I like it
+                        pkgs.zoxide # better cd. Used with yazi (?)
 
-                        pkgs.distrobox
-                        pkgs.podman-compose
+                        pkgs.distrobox # use arch when things get ugly on nixos
+                        pkgs.podman-compose # projects' container management
 
-                        # coding pack
-                        pkgs.fd
-                        pkgs.lazygit
-                        pkgs.ripgrep
-                        pkgs.tree-sitter
+                        # neovim coding pack
+                        pkgs.fd # find files on neovim
+                        pkgs.lazygit # TUI git, activated on neovim
+                        pkgs.ripgrep # neovim grep
+                        pkgs.tree-sitter # semantic highlighting on neovim
 
-                        pkgs.nwg-look
+                        pkgs.nwg-look # select GTK theme
                     ];
 
                     sessionVariables = {

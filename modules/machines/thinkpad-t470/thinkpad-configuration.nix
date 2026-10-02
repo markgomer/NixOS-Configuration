@@ -63,12 +63,14 @@
                     631 # CUPS
                     5173 # Vite
                     8080
+                    53 67 # hotspot
                 ];
                 allowedUDPPorts = [
                     53317
                     631
                     5173
                     8080
+                    53
                 ];
             };
             # Configure network proxy if necessary
@@ -204,13 +206,6 @@
                 binfmt = true;
             };
             gnome-disks.enable = true;
-            thunar = {
-                enable = true;
-                plugins = with pkgs; [
-                    thunar-archive-plugin
-                    thunar-volman
-                ];
-            };
         };
 
         xdg.portal = {
@@ -224,30 +219,32 @@
 
         environment.systemPackages = [
             # Essentials
-            pkgs.gcc
-            pkgs.python313
-            pkgs.unzip
-            pkgs.curl
-            pkgs.tree
-            pkgs.ffmpeg
-            pkgs.linuxKernel.packages.linux_6_18.cpupower
-            pkgs.pciutils
-            pkgs.xdg-user-dirs
-            pkgs-unstable.neovim
-            pkgs.polkit_gnome
-            pkgs.gnupg
-            pkgs.gnumake
-            pkgs.system-config-printer
+            pkgs.gcc # compile the world
+            pkgs.python313 # for pokemon-colorscripts lol
+            pkgs._7zz
+            pkgs.curl # url commands. Testing APIs
+            pkgs.tree # see file trees
+            pkgs.ffmpeg # dealing with images and videos
+            pkgs.pciutils # lspci -> GPU, hardware drivers
+            pkgs.xdg-user-dirs # set up dirs used by apps (~/Downloads, etc)
+            pkgs.trash-cli
+            pkgs-unstable.neovim # GOAT text editor
+            pkgs.polkit_gnome # GUI password prompt
+            # pkgs.gnupg # GNU Privacy Guard (do I need this?)
+            pkgs.gnumake # make command, for building stuff
+            pkgs.system-config-printer # life saver printer configurator
+            pkgs.networkmanagerapplet # for creating tethered connections
+            pkgs.nautilus # file explorer
 
             # CLI Tools
-            pkgs.btop
-            pkgs.fastfetch
-            pkgs.yazi
+            pkgs.btop # system resources monitoring
+            pkgs.fastfetch # flexing
+            pkgs.yazi # file manager
 
             # Terminals
-            pkgs-unstable.foot
+            pkgs-unstable.foot # best terminal
 
-            pkgs.brave
+            pkgs.brave # fallback browser
         ];
 
         users.users.majunior = {
