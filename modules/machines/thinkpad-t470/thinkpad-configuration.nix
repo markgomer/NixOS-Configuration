@@ -221,10 +221,11 @@
             # Essentials
             pkgs.gcc # compile the world
             pkgs.python313 # for pokemon-colorscripts lol
-            pkgs._7zz
+            pkgs._7zz # for zip and 7z files
+            pkgs.unrar # why they still use rar???
             pkgs.curl # url commands. Testing APIs
             pkgs.tree # see file trees
-            pkgs.ffmpeg # dealing with images and videos
+            pkgs.ffmpeg # converting images to webp
             pkgs.pciutils # lspci -> GPU, hardware drivers
             pkgs.xdg-user-dirs # set up dirs used by apps (~/Downloads, etc)
             pkgs.trash-cli
@@ -238,7 +239,7 @@
 
             # CLI Tools
             pkgs.btop # system resources monitoring
-            pkgs.fastfetch # flexing
+            pkgs.fastfetch # system flexing
             pkgs.yazi # file manager
 
             # Terminals
