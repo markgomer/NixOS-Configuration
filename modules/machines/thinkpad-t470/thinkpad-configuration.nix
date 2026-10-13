@@ -112,7 +112,7 @@
             wantedBy = [ "multi-user.target" ];
             script = ''
                 echo 80 > /sys/class/power_supply/BAT1/charge_control_start_threshold
-                echo 85 > /sys/class/power_supply/BAT1/charge_control_end_threshold
+                echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold
             '';
             serviceConfig.Type = "oneshot";
         };
@@ -217,36 +217,40 @@
             config.common.default = [ "gtk" ];
         };
 
-        environment.systemPackages = [
-            # Essentials
-            pkgs.gcc # compile the world
-            pkgs.python313 # for pokemon-colorscripts lol
-            pkgs._7zz # for zip and 7z files
-            pkgs.unrar # why they still use rar???
-            pkgs.curl # url commands. Testing APIs
-            pkgs.tree # see file trees
-            pkgs.ffmpeg # converting images to webp
-            pkgs.pciutils # lspci -> GPU, hardware drivers
-            pkgs.xdg-user-dirs # set up dirs used by apps (~/Downloads, etc)
-            pkgs.trash-cli
-            pkgs-unstable.neovim # GOAT text editor
-            pkgs.polkit_gnome # GUI password prompt
-            # pkgs.gnupg # GNU Privacy Guard (do I need this?)
-            pkgs.gnumake # make command, for building stuff
-            pkgs.system-config-printer # life saver printer configurator
-            pkgs.networkmanagerapplet # for creating tethered connections
-            pkgs.nautilus # file explorer
+        environment = {
+            sessionVariables.TERMINAL = "foot";
+            systemPackages = [
+                # Essentials
+                pkgs.gcc # compile the world
+                pkgs.python313 # for pokemon-colorscripts lol
+                pkgs._7zz # 7z files
+                pkgs.unzip # for zip files
+                pkgs.unrar # why they still use rar???
+                pkgs.curl # url commands. Testing APIs
+                pkgs.tree # see file trees
+                pkgs.ffmpeg # converting images to webp
+                pkgs.pciutils # lspci -> GPU, hardware drivers
+                pkgs.xdg-user-dirs # set up dirs used by apps (~/Downloads, etc)
+                pkgs.trash-cli
+                pkgs-unstable.neovim # GOAT text editor
+                pkgs.polkit_gnome # GUI password prompt
+                # pkgs.gnupg # GNU Privacy Guard (do I need this?)
+                pkgs.gnumake # make command, for building stuff
+                pkgs.system-config-printer # life saver printer configurator
+                pkgs.networkmanagerapplet # for creating tethered connections
+                pkgs.nautilus # file explorer
 
-            # CLI Tools
-            pkgs.btop # system resources monitoring
-            pkgs.fastfetch # system flexing
-            pkgs.yazi # file manager
+                # CLI Tools
+                pkgs.btop # system resources monitoring
+                pkgs.fastfetch # system flexing
+                pkgs.yazi # file manager
 
-            # Terminals
-            pkgs-unstable.foot # best terminal
+                # Terminals
+                pkgs-unstable.foot # best terminal
 
-            pkgs.brave # fallback browser
-        ];
+                pkgs.brave # fallback browser
+            ];
+        };
 
         users.users.majunior = {
             isNormalUser = true;
