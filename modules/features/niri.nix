@@ -30,7 +30,6 @@
             pkgs.pavucontrol # audio GUI fallback
             pkgs.pulseaudio # for audio switching
             pkgs.playerctl # for using keyboard media keys
-            pkgs-unstable.ianny # break reminder program
             pkgs-unstable.xwayland-satellite
             pkgs.swaybg # wallpaper
             # screen toolkit noctalia plugin
