@@ -189,11 +189,6 @@
             zsh.enable = true;
             starship.enable = true;
             ns-usbloader.enable = true;
-            steam = {
-                enable = true;
-                remotePlay.openFirewall = true;
-                dedicatedServer.openFirewall = true;
-            };
             nix-ld = {
                 enable = true;
                 libraries = [
