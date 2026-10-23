@@ -238,7 +238,7 @@
                 # CLI Tools
                 pkgs.btop # system resources monitoring
                 pkgs.fastfetch # system flexing
-                pkgs.yazi # file manager
+                pkgs-unstable.yazi # file manager
 
                 # Terminals
                 pkgs-unstable.foot # best terminal
