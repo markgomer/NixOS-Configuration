@@ -216,7 +216,10 @@
             sessionVariables.TERMINAL = "foot";
             systemPackages = [
                 # Essentials
-                pkgs.gcc # compile the world
+                pkgs.clang # compile the world
+                pkgs.lldb # rootz C/C++ debugger
+                pkgs.gnumake # make command, for building stuff
+                pkgs.cmake # generate build files
                 pkgs.python313 # for pokemon-colorscripts lol
                 pkgs._7zz # 7z files
                 pkgs.unzip # for zip files
@@ -230,7 +233,6 @@
                 pkgs-unstable.neovim # GOAT text editor
                 pkgs.polkit_gnome # GUI password prompt
                 # pkgs.gnupg # GNU Privacy Guard (do I need this?)
-                pkgs.gnumake # make command, for building stuff
                 pkgs.system-config-printer # life saver printer configurator
                 pkgs.networkmanagerapplet # for creating tethered connections
                 pkgs.nautilus # file explorer
