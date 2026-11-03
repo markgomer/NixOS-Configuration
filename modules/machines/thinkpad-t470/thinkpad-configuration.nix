@@ -232,7 +232,6 @@
                 pkgs.trash-cli
                 pkgs-unstable.neovim # GOAT text editor
                 pkgs.polkit_gnome # GUI password prompt
-                # pkgs.gnupg # GNU Privacy Guard (do I need this?)
                 pkgs.system-config-printer # life saver printer configurator
                 pkgs.networkmanagerapplet # for creating tethered connections
                 pkgs.nautilus # file explorer

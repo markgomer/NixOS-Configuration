@@ -24,7 +24,7 @@
         };
 
         environment.systemPackages = [
-            pkgs-unstable.noctalia-shell # legendary shell
+            pkgs-unstable.noctalia # legendary shell
             pkgs.kitty # we might get cooked without this
             # NOTE: disabled in favor of noctalia plugin
             # pkgs.hyprpolkitagent # or polkit_gnome
@@ -32,24 +32,22 @@
             pkgs.cliphist
             pkgs.brightnessctl # laptop brightness
             pkgs.nwg-look # GTK theme configurator
-            pkgs.nwg-displays # multiple display configuration
             pkgs.grimblast # screenshots
             pkgs.pavucontrol # audio GUI fallback
-            pkgs.wayland-pipewire-idle-inhibit # idle inhibition
+            pkgs.pulseaudio # for audio switching
             pkgs.playerctl # for using keyboard media keys
+            pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs-unstable.ianny # break reminder program
+            pkgs.swaybg # wallpaper
 
-            # screen tools plugin dependencies
-            pkgs.grim
-            pkgs.slurp
-            pkgs.tesseract
-            pkgs.imagemagick
-            pkgs.zbar
-            pkgs.translate-shell
-            pkgs.wl-screenrec
-            pkgs.ffmpeg
-            pkgs.gifski
-            pkgs.jq
+            # screen toolkit noctalia plugin
+            pkgs-unstable.slurp # region selection
+            pkgs-unstable.grim # screen capt
+            pkgs-unstable.hyprpicker # color pick
+            pkgs-unstable.imagemagick # image processing
+            pkgs-unstable.zbar # qr barcode scanning
+            pkgs-unstable.bc # GIF duration and framrate calculations
+            pkgs-unstable.mpv
         ];
     };
 }

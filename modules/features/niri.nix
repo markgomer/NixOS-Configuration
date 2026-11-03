@@ -21,7 +21,7 @@
             };
         };
         environment.systemPackages = [
-            pkgs-unstable.noctalia # beta version
+            pkgs-unstable.noctalia # legendary shell
             pkgs.alacritty # default terminal
             pkgs.wl-clipboard
             pkgs.cliphist
