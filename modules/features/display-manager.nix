@@ -1,4 +1,4 @@
-{ ... } :
+{ inputs, ... } :
 {
     flake.nixosModules.DisplayManagerModule = { pkgs, pkgs-unstable, ... }:
     let
@@ -12,14 +12,17 @@
             # };
         };
     in {
+        imports = [ inputs.noctalia-greeter.nixosModules.default ];
+
         environment.systemPackages = [
             myCustomSDDM
             pkgs.hyprland-qt-support
         ];
+
         services = {
             displayManager = {
                 sddm = {
-                    enable = true;
+                    enable = false;
                     wayland.enable = true;
                     theme = "sddm-astronaut-theme";
                     extraPackages = [
@@ -29,6 +32,7 @@
                     ];
                     settings.Theme.ThemeDir = "${myCustomSDDM}/share/sddm/themes";
                 };
+                noctalia-greeter = { enable = true; };
                 ly.enable = false;
                 gdm.enable = false;
                 sessionPackages = [

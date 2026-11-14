@@ -10,6 +10,11 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        noctalia-greeter = {
+            url = "github:noctalia-dev/noctalia-greeter";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
         # Framework to structure flake.
         # Can name and import modules by name.
         flake-parts.url = "github:hercules-ci/flake-parts";
