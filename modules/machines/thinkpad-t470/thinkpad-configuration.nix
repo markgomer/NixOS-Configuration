@@ -186,7 +186,13 @@
         };
 
         programs = {
-            zsh.enable = true;
+            zsh = {
+                enable = true;
+                shellInit = ''
+                    export ZDOTDIR="$HOME/.config/zsh"
+                '';
+                enableGlobalCompInit = false;
+            };
             starship.enable = true;
             ns-usbloader.enable = true;
             nix-ld = {
