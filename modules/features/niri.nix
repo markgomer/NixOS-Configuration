@@ -31,6 +31,7 @@
             pkgs.pulseaudio # for audio switching
             pkgs.playerctl # for using keyboard media keys
             pkgs-unstable.xwayland-satellite
+            pkgs-unstable.ianny # touch grass reminder
             pkgs.swaybg # wallpaper
             # screen toolkit noctalia plugin
             pkgs-unstable.slurp # region selection
